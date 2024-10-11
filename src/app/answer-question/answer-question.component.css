@@ -1,0 +1,20 @@
+form label{
+  display: block;
+}
+
+form button{
+  margin-left: 0.5rem;
+}
+
+#submit-bar{
+  display: flex;
+}
+
+#submit-bar input {
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+
+#submit-bar button{
+  padding: 0.5rem 1rem;
+}
