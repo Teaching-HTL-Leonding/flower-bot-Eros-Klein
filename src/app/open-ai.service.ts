@@ -4,10 +4,7 @@ import {firstValueFrom} from "rxjs";
 
 export type OpenAIResponse = {
   choices: {
-    message: {
-      role: string;
-      content: string;
-    }
+    message: Message
   }[];
   usage: {
     prompt_tokens: number;
@@ -15,20 +12,38 @@ export type OpenAIResponse = {
     total_tokens: number;
   }
 }
+
+export type Message = {
+  role: string;
+  content: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class OpenAiService {
   private httpClient = inject(HttpClient);
 
-  answerQuestion(question: string) : Promise<OpenAIResponse>{
-    return firstValueFrom(
+  private pastMessages: Message[] = [{role: 'system', content: 'Answer like Billy Butcher from the boys would do. Always try to use the phrases "would you" and "fucking diabolical"'}]
+
+  async answerQuestion(question: string) : Promise<OpenAIResponse>{
+    this.pastMessages.push({role: 'user', content: question});
+    const response:OpenAIResponse = await firstValueFrom(
       this.httpClient.post<OpenAIResponse>('http://localhost:3000/openai/deployments/gpt-4o-mini/chat/completions',{
-        messages: [
-          {role: 'system', content: 'Answer like Billy Butcher from the boys would do'},
-          {role: 'user', content: question}
-        ]
+        messages: this.pastMessages
       })
     )
+
+    this.pastMessages.push(response.choices[0].message);
+
+    return response;
+  }
+
+  public getPastMessages(): Message[] {
+    return this.pastMessages;
+  }
+
+  public clearPastMessages(): void {
+    this.pastMessages = [{role: 'system', content: 'Answer like Billy Butcher from the boys would do. Always try to use the phrases "would you" and "fucking diabolical"'}];
   }
 }

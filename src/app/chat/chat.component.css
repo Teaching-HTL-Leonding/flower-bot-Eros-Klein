@@ -1,0 +1,23 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.system-message{
+  color: red;
+  align-self: center;
+}
+
+.user-message{
+  width: 70%;
+  align-self: flex-start;
+  color: black;
+}
+
+.assistant-message{
+  width: 70%;
+  align-self: flex-end;
+  color: darkblue;
+}

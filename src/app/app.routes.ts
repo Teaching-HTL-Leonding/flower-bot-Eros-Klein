@@ -1,6 +1,7 @@
 import {Routes} from '@angular/router';
 import {AnswerQuestionComponent} from "./answer-question/answer-question.component";
+import {HomeComponent} from "./home/home.component";
 
 export const routes: Routes = [
-  {path: 'answer-question', component: AnswerQuestionComponent},
-  {path: '', redirectTo: 'answer-question', pathMatch: 'full'}];
+  {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'}];

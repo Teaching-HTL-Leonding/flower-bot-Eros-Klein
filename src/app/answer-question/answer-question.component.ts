@@ -12,12 +12,9 @@ import {MarkdownModule} from "ngx-markdown";
 })
 export class AnswerQuestionComponent {
   question = signal('');
-  answer = signal('');
-
   private readonly openAiService = inject(OpenAiService);
 
   async answerQuestion() {
-    const response :OpenAIResponse = await this.openAiService.answerQuestion(this.question());
-    this.answer.set(response.choices.reverse()[0].message.content);
+    await this.openAiService.answerQuestion(this.question());
   }
 }

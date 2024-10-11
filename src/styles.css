@@ -1,11 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 html{
   font-family: 'Lucida Sans', 'Lucida Console', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  height: 100%;
 }
 
 body{
   display: flex;
   padding-inline: 20%;
+  height: 100%;
 }
 
 app-root{
