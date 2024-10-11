@@ -1,0 +1,4 @@
+<form (submit)="openAiService.setPrompt(prompt())">
+  <input name="prompt" type="text" [(ngModel)]="prompt">
+  <button type="submit">Submit</button>
+</form>

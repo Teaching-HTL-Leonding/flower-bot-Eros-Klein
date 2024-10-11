@@ -24,7 +24,16 @@ export type Message = {
 export class OpenAiService {
   private httpClient = inject(HttpClient);
 
-  private pastMessages: Message[] = [{role: 'system', content: 'Answer like Billy Butcher from the boys would do. Always try to use the phrases "would you" and "fucking diabolical"'}]
+  private pastMessages: Message[] = []
+
+  constructor() {
+    this.clearPastMessages();
+  }
+
+  public setPrompt(prompt:string){
+    console.log(prompt);
+    localStorage.setItem('prompt', prompt);
+  }
 
   async answerQuestion(question: string) : Promise<OpenAIResponse>{
     this.pastMessages.push({role: 'user', content: question});
@@ -44,6 +53,10 @@ export class OpenAiService {
   }
 
   public clearPastMessages(): void {
-    this.pastMessages = [{role: 'system', content: 'Answer like Billy Butcher from the boys would do. Always try to use the phrases "would you" and "fucking diabolical"'}];
+    this.pastMessages = [];
+
+    if(localStorage.getItem("prompt")){
+      this.pastMessages.push({role: 'system', content: localStorage.getItem("prompt")!});
+    }
   }
 }
