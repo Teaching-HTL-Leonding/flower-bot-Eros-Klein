@@ -1,0 +1,46 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 2rem;
+  border-style: solid;
+  box-shadow: lightblue 10px 10px 20px;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+
+.container div{
+}
+
+.system-message{
+  color: red;
+  align-self: center;
+}
+
+.user-message{
+  width: 70%;
+  align-self: flex-start;
+  color: black;
+
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.11);
+}
+
+.assistant-message{
+  width: 70%;
+  align-self: flex-end;
+  color: darkblue;
+
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.11);
+}

@@ -1,0 +1,4 @@
+<form (submit)="setPrompt()">
+  <input name="prompt" type="text" [(ngModel)]="prompt">
+  <button [class.worked]="didWork()" type="submit">Submit</button>
+</form>

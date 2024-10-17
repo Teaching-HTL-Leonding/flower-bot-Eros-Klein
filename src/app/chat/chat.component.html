@@ -1,0 +1,11 @@
+<div class="container">
+  @for (message of messages(); track $index) {
+    <div class="{{message.role}}-message">
+      <div class="content">
+        <markdown data="{{message.content}}">
+
+        </markdown>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,16 @@
+<h2>Answer-Question</h2>
+
+<form (submit)="answerQuestion()">
+  <label for="question">Question</label>
+  <div id="submit-bar">
+    <input [(ngModel)]="question" type="text" id="question" name="question" list="suggestions" placeholder="Enter your question here">
+
+    <datalist id="suggestions">
+      <option>Are dolphin fish?</option>
+      <option>Give me a checklist for a good body-weight training</option>
+      <option>What should I do as a tourist in vienna</option>
+      <option>Whats Billy Butchers favourite sentence?</option>
+    </datalist>
+    <button type="submit">Submit</button>
+  </div>
+</form>
