@@ -15,6 +15,13 @@ export class SetSystemPromptComponent {
 
   prompt = signal("")
 
+  didWork = signal(false)
+
   openAiService = inject(OpenAiService)
+
+  public setPrompt() {
+    this.openAiService.setPrompt(this.prompt());
+    this.didWork.set(true);
+  }
 
 }

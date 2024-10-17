@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+form > *{
+  padding: 1rem;
+}
+
+.worked{
+  background-color: green;
+}
+
+.failed{
+  background-color: red;
+}

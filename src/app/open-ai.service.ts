@@ -31,7 +31,6 @@ export class OpenAiService {
   }
 
   public setPrompt(prompt:string){
-    console.log(prompt);
     localStorage.setItem('prompt', prompt);
   }
 
